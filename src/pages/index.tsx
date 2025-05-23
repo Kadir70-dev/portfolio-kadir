@@ -108,7 +108,7 @@ const Home: React.FC = () => {
             }}
           >
             <Link
-              href="https://www.linkedin.com/in/kadirab1999"
+              href="https://www.linkedin.com/in/abdul-kadir-mukadam-63957422b/"
               target="_blank"
               rel="noopener noreferrer"
               color="primary"
