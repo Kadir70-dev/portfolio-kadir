@@ -53,18 +53,12 @@ const projects: Project[] = [
 ];
 
 const skills: { title: string; items: string }[] = [
-  {
-    title: "Languages",
-    items: "JavaScript, TypeScript, Python, Golang",
-  },
+  { title: "Languages", items: "JavaScript, TypeScript, Python, Golang" },
   {
     title: "Backend",
     items: "Node.js, Express, NestJS, FastAPI, REST, GraphQL, WebSockets",
   },
-  {
-    title: "Databases",
-    items: "MongoDB, MySQL, PostgreSQL, Redis",
-  },
+  { title: "Databases", items: "MongoDB, MySQL, PostgreSQL, Redis" },
   {
     title: "DevOps & Tools",
     items: "Docker, Kubernetes, AWS, Rancher, Helm, Argo CI/CD, Grafana, Linux",
@@ -114,7 +108,7 @@ const Home: React.FC = () => {
             }}
           >
             <Link
-              href="https://www.linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/kadirab1999"
               target="_blank"
               rel="noopener noreferrer"
               color="primary"
@@ -154,9 +148,12 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Skills
           </Typography>
-          <Grid container spacing={2}>
-            {skills.map(({ title, items }) => (
-              <Grid item xs={12} sm={6} key={title}>
+          <Grid container spacing={2} columns={12}>
+            {skills.map(({ title, items }, index) => (
+              <Grid
+                key={index}
+                gridColumn={{ xs: "span 12", sm: "span 6" }}
+              >
                 <Paper
                   elevation={3}
                   sx={{
@@ -182,9 +179,12 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Projects
           </Typography>
-          <Grid container spacing={3}>
-            {projects.map(({ title, description }) => (
-              <Grid item xs={12} sm={6} key={title}>
+          <Grid container spacing={3} columns={12}>
+            {projects.map(({ title, description }, index) => (
+              <Grid
+                key={index}
+                gridColumn={{ xs: "span 12", sm: "span 6" }}
+              >
                 <Paper
                   elevation={4}
                   sx={{
