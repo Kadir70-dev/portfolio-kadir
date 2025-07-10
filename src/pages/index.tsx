@@ -126,9 +126,9 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Skills
           </Typography>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} columns={12}>
             {skills.map(({ title, items }, index) => (
-              <Grid key={index} xs={12} sm={6} item>
+              <Grid key={index} span={6}>
                 <Paper elevation={2} sx={{ p: 2 }}>
                   <Typography variant="h6" mb={1}>
                     {title}
@@ -145,9 +145,9 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Projects
           </Typography>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} columns={12}>
             {projects.map(({ title, description }, index) => (
-              <Grid key={index} xs={12} sm={6} item>
+              <Grid key={index} span={6}>
                 <Paper
                   elevation={4}
                   sx={{
