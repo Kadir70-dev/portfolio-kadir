@@ -12,18 +12,6 @@ import {
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import WaveBackground from "../components/WaveBackground";
-import { keyframes } from "@mui/system";
-
-const float = keyframes`
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-`;
-
-const hoverGrow = keyframes`
-  from { transform: scale(1); }
-  to { transform: scale(1.05); }
-`;
 
 type Project = {
   title: string;
@@ -67,21 +55,22 @@ const skills: { title: string; items: string }[] = [
 
 const Home: React.FC = () => {
   return (
-    <>
-      <WaveBackground />
-
-      <Container maxWidth="md" sx={{ pt: 4, pb: 8, position: "relative", zIndex: 1 }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+        pt: 4,
+        pb: 8,
+      }}
+    >
+      <Container maxWidth="md">
         {/* Header */}
         <Box textAlign="center" mb={6}>
           <Typography
             variant="h2"
             fontWeight="bold"
             gutterBottom
-            sx={{
-              animation: `${float} 4s ease-in-out infinite`,
-              color: "#ffffff",
-              textShadow: "2px 2px 8px rgba(0,0,0,0.6)",
-            }}
+            sx={{ color: "#333" }}
           >
             Abdul Kadir
           </Typography>
@@ -95,18 +84,7 @@ const Home: React.FC = () => {
             </Link>
           </Typography>
 
-          <Stack
-            direction="row"
-            justifyContent="center"
-            spacing={3}
-            mt={2}
-            sx={{
-              "& a:hover": {
-                transform: "scale(1.2)",
-                transition: "transform 0.3s ease",
-              },
-            }}
-          >
+          <Stack direction="row" justifyContent="center" spacing={3} mt={2}>
             <Link
               href="https://www.linkedin.com/in/abdul-kadir-mukadam-63957422b/"
               target="_blank"
@@ -148,22 +126,10 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Skills
           </Typography>
-          <Grid container spacing={2} columns={12}>
+          <Grid container spacing={2}>
             {skills.map(({ title, items }, index) => (
-              <Grid
-                key={index}
-                gridColumn={{ xs: "span 12", sm: "span 6" }}
-              >
-                <Paper
-                  elevation={3}
-                  sx={{
-                    p: 2,
-                    animation: `${float} 6s ease-in-out infinite`,
-                    "&:hover": {
-                      animation: `${hoverGrow} 0.3s forwards`,
-                    },
-                  }}
-                >
+              <Grid key={index} xs={12} sm={6} item>
+                <Paper elevation={2} sx={{ p: 2 }}>
                   <Typography variant="h6" mb={1}>
                     {title}
                   </Typography>
@@ -179,23 +145,18 @@ const Home: React.FC = () => {
           <Typography variant="h4" gutterBottom>
             Projects
           </Typography>
-          <Grid container spacing={3} columns={12}>
+          <Grid container spacing={3}>
             {projects.map(({ title, description }, index) => (
-              <Grid
-                key={index}
-                gridColumn={{ xs: "span 12", sm: "span 6" }}
-              >
+              <Grid key={index} xs={12} sm={6} item>
                 <Paper
                   elevation={4}
                   sx={{
                     p: 3,
                     height: "100%",
-                    animation: `${float} 5s ease-in-out infinite`,
                     transition: "transform 0.3s ease",
                     "&:hover": {
-                      transform: "translateY(-10px) scale(1.03)",
-                      boxShadow:
-                        "0 10px 20px rgba(25, 118, 210, 0.4), 0 6px 6px rgba(25, 118, 210, 0.15)",
+                      transform: "translateY(-5px)",
+                      boxShadow: "0 6px 12px rgba(0,0,0,0.1)",
                     },
                   }}
                 >
@@ -220,11 +181,11 @@ const Home: React.FC = () => {
             href="mailto:kadirab1999@gmail.com"
             size="large"
             sx={{
-              animation: `${float} 4s ease-in-out infinite`,
-              "&:hover": {
-                animation: "none",
-                transform: "scale(1.05)",
-              },
+              px: 4,
+              py: 1.5,
+              mt: 2,
+              fontWeight: 600,
+              fontSize: "1rem",
             }}
           >
             Email Me
@@ -239,7 +200,7 @@ const Home: React.FC = () => {
           &copy; {new Date().getFullYear()} Abdul Kadir. All rights reserved.
         </Box>
       </Container>
-    </>
+    </Box>
   );
 };
 
